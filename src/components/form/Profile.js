@@ -1,12 +1,12 @@
-import { Avatar, Button, IconButton, Paper, TextField, Typography } from '@mui/material';
+import { Avatar, Button, IconButton, TextField, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import { useFormik } from 'formik';
 import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import * as yup from 'yup';
-import { updateProfile, createProfile } from '../../services/user';
-import { messageActions } from '../../store/messageSlice';
+import { createProfile, updateProfile } from '../../services/user';
 import { dialogActions } from '../../store/dialogSlice';
+import { messageActions } from '../../store/messageSlice';
 import Autocomplete from '../core/AutoComplete';
 
 const initVals = {
@@ -28,7 +28,6 @@ const Schema = yup.object().shape({
 const Profile = ({ status, data }) => {
     const [image, setImage] = useState("")
     const dispatch = useDispatch()
-    const auth = useSelector(state => state.auth)
 
     const onSubmit = async (dataInput) => {
 
@@ -44,10 +43,10 @@ const Profile = ({ status, data }) => {
             formData.append("image", dataInput.image)
 
             dispatch(messageActions.show({ msg: "Request has been sent please wait a moment...", variant: "info" }))
-            if (data != "create") { // update
-                const { data: res, status } = await updateProfile(formData)
+            if (data !== "create") { // update
+                const { status } = await updateProfile(formData)
                 if (status !== 200)
-                dispatch(messageActions.show({ msg: "Error on updating profile", variant: "error" }))
+                    dispatch(messageActions.show({ msg: "Error on updating profile", variant: "error" }))
                 else {
                     dispatch(messageActions.show({ msg: "Profile updated successfully" }))
                     dispatch(dialogActions.hide('profile'))
@@ -91,6 +90,7 @@ const Profile = ({ status, data }) => {
         formik.values.name = data?.name
         formik.values.gender = data?.gender
         setImage(data?.image)
+        // eslint-disable-next-line
     }, [status, data])
 
 
@@ -156,7 +156,7 @@ const Profile = ({ status, data }) => {
                         Update
                     </Button>
                 </Box>
-                
+
             </form>
         </>
 

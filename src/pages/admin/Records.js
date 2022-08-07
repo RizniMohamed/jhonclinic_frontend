@@ -16,9 +16,10 @@ const Records = () => {
   const message = useSelector(state => state.message)
   const [loading, setLoading] = useState(undefined)
 
+
   const getData = async () => {
     setLoading("Loading...")
-    const { data, status } = await getRecords(userID)
+    const { data } = await getRecords(userID)
     const newData = data.map(record => {
       return {
         date: record.date,
@@ -35,7 +36,10 @@ const Records = () => {
     setLoading(undefined)
   }
 
-  useEffect(() => { getData() }, [userID, message.status])
+  useEffect(() => {
+    getData()
+    // eslint-disable-next-line
+  }, [userID, message.status])
 
   const handleAddClick = () => {
     dispatch(dialogActions.show({ name: "record", data: "create" }))

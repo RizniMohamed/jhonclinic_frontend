@@ -1,13 +1,10 @@
 import { Box, Typography } from '@mui/material'
 import React from 'react'
-import { useDispatch } from 'react-redux'
 import LoginForm from '../components/form/Login'
 import logo from '../localData/image/logo.png'
 import wall from '../localData/image/login wall.jpg'
 
 const Login = () => {
-
-    const dispatch = useDispatch()
 
     return (
         <>

@@ -1,21 +1,20 @@
+import AddIcon from '@mui/icons-material/Add';
 import BrandingWatermarkIcon from '@mui/icons-material/BrandingWatermark';
 import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import WcIcon from '@mui/icons-material/Wc';
-import { Avatar, Box, Button, TextField, Typography } from '@mui/material';
+import { Avatar, Box, Button, Typography } from '@mui/material';
+import Fab from '@mui/material/Fab';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import TextBoxPlain from '../../components/core/TextBox_Plain';
 import { deleteUser, getUsers } from '../../services/user';
 import { dialogActions } from '../../store/dialogSlice';
 import { messageActions } from '../../store/messageSlice';
-import TextBox_Plain from '../../components/core/TextBox_Plain';
-import Fab from '@mui/material/Fab';
-import AddIcon from '@mui/icons-material/Add';
 
 const Patients = () => {
   const dispatch = useDispatch()
-  const auth = useSelector(state => state.auth)
   const message = useSelector(state => state.message)
   const [user, setUser] = useState({})
   const [loading, setLoading] = useState(undefined)
@@ -77,7 +76,7 @@ const Patients = () => {
       <Box display="flex" flexDirection="column" alignItems="center" width={"100%"} my={5}>
         <Box display="flex" alignItems="center" mb={4}>
           <Typography fontSize={16} fontWeight={500} sx={{ mr: 1, width: 120 }}>Patient ID</Typography>
-          <TextBox_Plain data={searchTxtBxData} />
+          <TextBoxPlain data={searchTxtBxData} />
         </Box>
 
         <Fab size="small" color="secondary" sx={{ position: "fixed", bottom: 20, right: 16 }}>
@@ -92,7 +91,7 @@ const Patients = () => {
       <Box display="flex" flexDirection="column" alignItems="center" width={"100%"} my={5}>
         <Box display="flex" alignItems="center" mb={4}>
           <Typography fontSize={16} fontWeight={500} sx={{ mr: 1, width: 120 }}>Patient ID</Typography>
-          <TextBox_Plain data={searchTxtBxData} />
+          <TextBoxPlain data={searchTxtBxData} />
         </Box>
         <Box display="flex" justifyContent="center" alignItems="center" height="70vh" >
           <Typography fontSize={20} textAlign="center" fontWeight={900}>{loading ?? "No patient assoicated with this ID"}</Typography>
@@ -109,7 +108,7 @@ const Patients = () => {
         <Box display="flex" flexDirection="column" alignItems="center" width={"100%"} my={5}>
           <Box display="flex" alignItems="center" mb={4}>
             <Typography fontSize={16} fontWeight={500} sx={{ mr: 1, width: 120 }}>Patient ID</Typography>
-            <TextBox_Plain data={searchTxtBxData} />
+            <TextBoxPlain data={searchTxtBxData} />
           </Box>
 
           <Avatar

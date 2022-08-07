@@ -1,5 +1,5 @@
 import {
-  Dashboard, FolderShared, LocalHotel, Logout, Person
+  Dashboard, Logout, Person
 } from '@mui/icons-material';
 
 

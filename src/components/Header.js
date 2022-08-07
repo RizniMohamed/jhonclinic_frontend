@@ -8,7 +8,6 @@ import { drawerActions } from '../store/drawerSlice';
 const Header = () => {
 
   const drawerState = useSelector(state => state.leftDrawer.status)
-  const auth = useSelector(state => state.auth)
   const dispatch = useDispatch()
 
   const handleDrawerState = () => drawerState ? dispatch(drawerActions.hide()) : dispatch(drawerActions.show())
