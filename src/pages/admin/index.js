@@ -1,13 +1,19 @@
 import React from 'react'
 import { Box } from '@mui/system'
-// import SidePanel from "../../Components/SidePanel"
 import { Outlet } from 'react-router-dom'
+import SidePanel from '../../components/SidePanel'
+import Header from "../../components/Header"
+import { Toolbar } from '@mui/material'
 
 const Index = () => {
     return (
-        <Box display="flex" p={1} >
-            {/* <SidePanel /> */}
-            <Outlet />
+        <Box p={1} >
+            <Header />
+            <Toolbar />
+            <Box display="flex">
+                <SidePanel />
+                <Outlet />
+            </Box>
         </Box>
     )
 }

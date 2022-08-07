@@ -40,7 +40,7 @@ const Login = () => {
             return
         }
         dispatch(authActions.set())
-        naviagte('Admin')
+        naviagte('admin')
     }
 
 

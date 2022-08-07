@@ -79,11 +79,11 @@ const theme = {
         },
         "type": "light",
         "primary": {
-            "main": '#3b5998',
+            "main": '#5179AA',
 
         },
         "secondary": {
-            "main": '#3b5998',
+            "main": '#5179AA',
         },
         "error": {
             "light": "#e57373",
