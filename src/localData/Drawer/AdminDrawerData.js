@@ -15,11 +15,6 @@ const data = [
     icon: <Person />
   },
   {
-    name: "Records",
-    path: "/admin/records",
-    icon: <FolderShared />
-  },
-  {
     name: "Logout",
     path: "/",
     icon: <Logout />

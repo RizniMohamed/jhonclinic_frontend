@@ -9,28 +9,39 @@ export const loginUser = async (data) => {
   }
 };
 
-export const singupUser = async (data) => {
+export const getUsers = async (id) => {
   try {
-    const response = await API.post("/user/signup", data);
+    const response = await API.get(`/user/${id}`);
     return response.data
   } catch (e) {
     throw e;
   }
 };
 
-export const getUser_FP = async (data) => {
+export const updateProfile = async (data) => {
   try {
-    const response = await API.get(`/user/fp/${data}`);
-    return response.data;
+    const response = await API.put(`/user/${data.get('userID')}`, data);
+    return response.data
   } catch (e) {
     throw e;
   }
 };
 
-export const updatePassword_FP = async (data) => {
+export const deleteUser = async (data) => {
   try {
-    const response = await API.patch(`/user/fp/${data.userID}`, data);
-    return response.data;
+    const response = await API.delete(`/user/${data.userID}`);
+    return response.data
+  } catch (e) {
+    throw e;
+  }
+};
+
+
+
+export const createProfile = async (data) => {
+  try {
+    const response = await API.post(`/user`, data);
+    return response.data
   } catch (e) {
     throw e;
   }

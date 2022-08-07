@@ -21,10 +21,8 @@ const SidePanel = () => {
   useEffect(() => {
     const pathArrays = location.pathname.split("/").filter(x => x)
 
-    console.log(pathArrays);
     if (pathArrays[0] === "admin" && pathArrays.length === 1) { setCurrent("dashboard") }
     if (pathArrays[0] === "admin" && pathArrays[1] === "patients") { setCurrent("patients") }
-    if (pathArrays[0] === "admin" && pathArrays[1] === "records") { setCurrent("records") }
 
     setData(AdminData)
 

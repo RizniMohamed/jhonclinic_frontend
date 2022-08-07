@@ -1,16 +1,16 @@
 import React from 'react'
+import Delete from './Delete'
 import Message from './Message'
-import OTP from './OTP'
-import Signup from './Signup'
-import UpdatePassword from './UpdatePassword'
+import Profile from './Profile'
+import Record from './Record'
 
 const index = () => {
   return (
     <>
       <Message />
-      <Signup />
-      <OTP />
-      <UpdatePassword />
+      <Profile/>
+      <Delete />
+      <Record/>
     </>
   )
 }

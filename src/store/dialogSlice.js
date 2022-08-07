@@ -6,22 +6,21 @@ const initialState = {
         data: "",
         onSubmit: ""
     },
-    signup: {
+    profile: {
         status: false,
         data: "",
         onSubmit: ""
     },
-    OTP: {
+    delete: {
         status: false,
         data: "",
         onSubmit: ""
-    },
-    UpdatePassword: {
+    },   
+    record: {
         status: false,
         data: "",
         onSubmit: ""
-    },
-   
+    },   
 }
 const DialogSlice = createSlice({
     name: "Dialog Slice",
